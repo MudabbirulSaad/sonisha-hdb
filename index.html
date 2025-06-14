@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sonisha! 🧅✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .onion-layer {
+            border-radius: 50%;
+            position: absolute;
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .luxury-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .onion-tears {
+            position: absolute;
+            width: 4px;
+            height: 20px;
+            background: linear-gradient(to bottom, rgba(135, 206, 235, 0.8), rgba(135, 206, 235, 0));
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 min-h-screen">
+    <!-- Floating Onion Particles -->
+    <div id="onion-particles" class="fixed inset-0 pointer-events-none z-0"></div>
+    
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center px-4">
+        <div class="text-center z-10">
+            <!-- Main Onion Character -->
+            <div id="main-onion" class="relative mx-auto mb-8 w-64 h-64">
+                <!-- Onion Layers -->
+                <div class="onion-layer w-64 h-64 bg-gradient-to-br from-yellow-200 to-yellow-400 opacity-90"></div>
+                <div class="onion-layer w-48 h-48 bg-gradient-to-br from-yellow-300 to-yellow-500 top-8 left-8"></div>
+                <div class="onion-layer w-32 h-32 bg-gradient-to-br from-yellow-400 to-yellow-600 top-16 left-16"></div>
+                <div class="onion-layer w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-700 top-24 left-24"></div>
+                
+                <!-- Onion Face -->
+                <div class="absolute top-20 left-20 w-24 h-24">
+                    <!-- Eyes -->
+                    <div class="absolute top-6 left-4 w-3 h-3 bg-black rounded-full"></div>
+                    <div class="absolute top-6 right-4 w-3 h-3 bg-black rounded-full"></div>
+                    <!-- Mouth -->
+                    <div class="absolute top-12 left-1/2 transform -translate-x-1/2 w-8 h-4 border-2 border-black rounded-b-full"></div>
+                </div>
+                
+                <!-- Tears -->
+                <div class="onion-tears top-28 left-24" style="animation-delay: 0s;"></div>
+                <div class="onion-tears top-28 right-24" style="animation-delay: 0.5s;"></div>
+                <div class="onion-tears top-32 left-28" style="animation-delay: 1s;"></div>
+                <div class="onion-tears top-32 right-28" style="animation-delay: 1.5s;"></div>
+            </div>
+            
+            <!-- Main Title -->
+            <h1 id="main-title" class="playfair text-6xl md:text-8xl font-black text-white mb-4 opacity-0">
+                Happy Birthday
+            </h1>
+            <h2 id="name-title" class="playfair text-4xl md:text-6xl font-bold gradient-text mb-8 opacity-0">
+                Sonisha! 👑
+            </h2>
+            
+            <!-- Subtitle -->
+            <p id="subtitle" class="text-xl md:text-2xl text-purple-200 mb-12 opacity-0 max-w-2xl mx-auto">
+                "Oh my god! What is this?" - A birthday surprise! 😈
+            </p>
+            
+            <!-- CTA Button -->
+            <button id="reveal-btn" class="luxury-card px-8 py-4 text-white font-semibold rounded-full hover:scale-105 transition-all duration-300 opacity-0">
+                Ready for your surprise? 🎁
+            </button>
+        </div>
+    </section>
+    
+    <!-- Message Section -->
+    <section id="message-section" class="min-h-screen flex items-center justify-center px-4 opacity-0">
+        <div class="luxury-card rounded-3xl p-8 md:p-12 max-w-4xl mx-auto text-center">
+            <div class="mb-8">
+                <div class="text-6xl mb-4">🧅</div>
+                <h3 class="playfair text-3xl md:text-4xl font-bold text-white mb-6">
+                    Dear Drama Queen Sonisha,
+                </h3>
+            </div>
+            
+            <div class="space-y-6 text-lg md:text-xl text-purple-100 leading-relaxed">
+                <p id="message-1" class="opacity-0">
+                    "What are you doing Sonisha?" - Making your birthday special! 😤
+                </p>
+                <p id="message-2" class="opacity-0">
+                    We know you always say "Oh my god! What is this?" when we ask for onions...
+                </p>
+                <p id="message-3" class="opacity-0">
+                    But today, instead of "butter chicken and nun de do"... <span class="gradient-text font-bold">it's birthday cake de do!</span> 🥺✨
+                </p>
+                <p id="message-4" class="opacity-0">
+                    You're the most amazing front staff we could ask for! 💜
+                </p>
+                <p id="message-5" class="opacity-0">
+                    (And yes, we promise no "curd rice dedo" today - just birthday treats! 😅)
+                </p>
+            </div>
+            
+            <div class="mt-12">
+                <button id="final-reveal" class="luxury-card px-10 py-5 text-white font-bold text-xl rounded-full hover:scale-105 transition-all duration-300 opacity-0">
+                    One more surprise! 🎉
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final Section -->
+    <section id="final-section" class="min-h-screen flex items-center justify-center px-4 opacity-0">
+        <div class="text-center">
+            <div id="birthday-cake" class="relative mx-auto mb-8 w-48 h-48">
+                <!-- Cake Base -->
+                <div class="absolute bottom-0 w-48 h-32 bg-gradient-to-t from-yellow-600 to-yellow-400 rounded-lg"></div>
+                <!-- Cake Top -->
+                <div class="absolute bottom-24 left-4 w-40 h-24 bg-gradient-to-t from-pink-400 to-pink-300 rounded-lg"></div>
+                <!-- Candles -->
+                <div class="absolute top-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <div class="w-2 h-8 bg-red-500 rounded-sm"></div>
+                    <div class="w-2 h-8 bg-blue-500 rounded-sm"></div>
+                    <div class="w-2 h-8 bg-green-500 rounded-sm"></div>
+                </div>
+                <!-- Flames -->
+                <div class="absolute top-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <div class="w-2 h-4 bg-orange-400 rounded-full animate-pulse"></div>
+                    <div class="w-2 h-4 bg-orange-400 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+                    <div class="w-2 h-4 bg-orange-400 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+                </div>
+            </div>
+            
+            <h3 class="playfair text-4xl md:text-5xl font-bold text-white mb-6 opacity-0" id="final-title">
+                May your year be as layered as an onion...
+            </h3>
+            <p class="text-2xl md:text-3xl gradient-text font-bold mb-8 opacity-0" id="final-subtitle">
+                But way more sweet! 🍰
+            </p>
+            
+            <div class="luxury-card rounded-2xl p-6 max-w-md mx-auto opacity-0" id="final-message">
+                <p class="text-lg text-purple-100 mb-4">
+                    With love from your favorite restaurant family,
+                </p>
+                <p class="playfair text-2xl font-bold gradient-text">
+                    Village Biryani 🍛✨
+                </p>
+            </div>
+            
+            <div class="mt-12 opacity-0" id="birthday-wishes">
+                <p class="text-lg text-purple-200 mb-4">"After testing this birthday surprise, we hope you like it!" 🎉</p>
+                <div class="text-4xl">🍛 🎂 ✨</div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        gsap.registerPlugin(ScrollTrigger, TextPlugin);
+        
+        // Create floating onion particles
+        function createOnionParticles() {
+            const container = document.getElementById('onion-particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.innerHTML = '🧅';
+                particle.style.position = 'absolute';
+                particle.style.fontSize = Math.random() * 20 + 10 + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                container.appendChild(particle);
+                
+                gsap.to(particle, {
+                    y: -100,
+                    rotation: 360,
+                    duration: Math.random() * 10 + 10,
+                    repeat: -1,
+                    ease: "none"
+                });
+            }
+        }
+        
+        // Initialize particles
+        createOnionParticles();
+        
+        // Main onion animation
+        gsap.set("#main-onion .onion-layer", { scale: 0, rotation: 180 });
+        gsap.to("#main-onion .onion-layer", {
+            scale: 1,
+            rotation: 0,
+            duration: 2,
+            stagger: 0.3,
+            ease: "elastic.out(1, 0.5)",
+            delay: 0.5
+        });
+        
+        // Tears animation
+        gsap.to(".onion-tears", {
+            y: 50,
+            opacity: 0,
+            duration: 2,
+            repeat: -1,
+            stagger: 0.5,
+            ease: "power2.out"
+        });
+        
+        // Title animations
+        gsap.to("#main-title", {
+            opacity: 1,
+            y: 0,
+            duration: 1.5,
+            delay: 2,
+            ease: "power3.out"
+        });
+        
+        gsap.to("#name-title", {
+            opacity: 1,
+            scale: 1,
+            duration: 1.5,
+            delay: 2.5,
+            ease: "back.out(1.7)"
+        });
+        
+        gsap.to("#subtitle", {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: 3,
+            ease: "power2.out"
+        });
+        
+        gsap.to("#reveal-btn", {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            delay: 3.5,
+            ease: "back.out(1.7)"
+        });
+        
+        // Button click animation
+        document.getElementById('reveal-btn').addEventListener('click', () => {
+            gsap.to(window, {
+                scrollTo: "#message-section",
+                duration: 2,
+                ease: "power2.inOut"
+            });
+            
+            gsap.to("#message-section", {
+                opacity: 1,
+                duration: 1,
+                delay: 0.5
+            });
+            
+            // Animate messages
+            gsap.to(["#message-1", "#message-2", "#message-3", "#message-4", "#message-5"], {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                stagger: 0.8,
+                delay: 1,
+                ease: "power2.out"
+            });
+            
+            gsap.to("#final-reveal", {
+                opacity: 1,
+                scale: 1,
+                duration: 1,
+                delay: 5,
+                ease: "back.out(1.7)"
+            });
+        });
+        
+        // Final reveal
+        document.getElementById('final-reveal').addEventListener('click', () => {
+            gsap.to(window, {
+                scrollTo: "#final-section",
+                duration: 2,
+                ease: "power2.inOut"
+            });
+            
+            gsap.to("#final-section", {
+                opacity: 1,
+                duration: 1,
+                delay: 0.5
+            });
+            
+            // Cake animation
+            gsap.fromTo("#birthday-cake", 
+                { scale: 0, rotation: -180 },
+                { scale: 1, rotation: 0, duration: 2, ease: "elastic.out(1, 0.5)", delay: 1 }
+            );
+            
+            // Final text animations
+            gsap.to(["#final-title", "#final-subtitle", "#final-message", "#nepal-flag"], {
+                opacity: 1,
+                y: 0,
+                duration: 1.5,
+                stagger: 0.5,
+                delay: 2,
+                ease: "power2.out"
+            });
+            
+            // Confetti effect
+            setTimeout(() => {
+                for (let i = 0; i < 50; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.innerHTML = ['🎉', '🎊', '✨', '🎂', '🧅'][Math.floor(Math.random() * 5)];
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.top = '-50px';
+                    confetti.style.fontSize = '24px';
+                    confetti.style.zIndex = '1000';
+                    document.body.appendChild(confetti);
+                    
+                    gsap.to(confetti, {
+                        y: window.innerHeight + 100,
+                        rotation: 360,
+                        duration: Math.random() * 3 + 2,
+                        ease: "power2.out",
+                        onComplete: () => confetti.remove()
+                    });
+                }
+            }, 3000);
+        });
+        
+        // Floating animation for main onion
+        gsap.to("#main-onion", {
+            y: -20,
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: "power2.inOut"
+        });
+        
+        // Parallax effect for background particles
+        gsap.to("#onion-particles", {
+            y: -100,
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: 1
+            }
+        });
+    </script>
+</body>
+</html>
